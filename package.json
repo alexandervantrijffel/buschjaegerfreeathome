@@ -13,7 +13,7 @@
     "prebuild": "rimraf .build/",
     "build": "node -r dotenv/config esbuild.config.js",
     "build:dist": "node esbuild.config.js",
-    "serve": "(trap 'kill 0' INT TERM; node -r dotenv/config esbuild.config.js build --watch & nodemon)",
+    "serve": "(trap 'kill 0' INT TERM; node -r dotenv/config esbuild.config.js build --watch & nodemon devices)",
     "serve:watchexec": "todo: build poc with watchexec instead of nodemon ",
     "start:debug": "DEBUG=express:* nodemon --inspect 'src/index.ts'",
     "postinstall": "husky install",
@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "axios": "0.24.0",
+    "commander": "8.3.0",
     "dotenv": "^10.0.0",
     "json-colorizer": "^2.2.2",
     "winston": "^3.3.3"
