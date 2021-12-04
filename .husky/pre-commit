@@ -11,7 +11,7 @@ if ! type golangci-lint 1>/dev/null; then
 fi
 
 # scan for committed secrets
-docker run --pull always -v ${PWD}:/ts zricethezav/gitleaks:latest --path="/ts" -v
+docker run --pull always -v ${PWD}:/ts zricethezav/gitleaks:latest detect -s="/ts" -v
 
 if ! type npx 1>/dev/null; then
   echo "please install npx, see https://nodejs.dev/learn/the-npx-nodejs-package-runner"

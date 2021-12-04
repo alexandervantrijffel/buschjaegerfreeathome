@@ -54,3 +54,5 @@ build
 
 # docker secrets
 **/*_secret
+
+.gitleaks.toml
