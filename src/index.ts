@@ -2,7 +2,7 @@ import './unhandled-error-handling'
 import { Command } from 'commander'
 import log from './log'
 import envVar from './env'
-import { ListDevices, SetDatapoint } from './localapiclient'
+import { ListDevices, SetDatapoint, MapChannels } from './localapiclient'
 
 const program = new Command()
 
@@ -22,7 +22,7 @@ program
       log.info('No devices found')
       return
     }
-    log.debug('Devices', { devices })
+    log.debug('Devices', { devices: MapChannels(devices) })
   })
 
 const datapoint = program.command('datapoint')

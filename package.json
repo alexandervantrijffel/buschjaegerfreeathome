@@ -13,7 +13,7 @@
     "prebuild": "rimraf .build/",
     "build": "node -r dotenv/config esbuild.config.js",
     "build:dist": "node esbuild.config.js",
-    "serve": "(trap 'kill 0' INT TERM; node -r dotenv/config esbuild.config.js build --watch & nodemon devices)",
+    "serve": "(trap 'kill 0' INT TERM; node -r dotenv/config esbuild.config.js build --watch & nodemon devices -s)",
     "serve:watchexec": "todo: build poc with watchexec instead of nodemon ",
     "start:debug": "DEBUG=express:* nodemon --inspect 'src/index.ts'",
     "postinstall": "husky install",

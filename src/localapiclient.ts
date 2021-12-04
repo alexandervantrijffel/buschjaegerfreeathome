@@ -84,6 +84,22 @@ export const ListDevices = async (conn: SysApConnection, search?: string): Promi
   return mapped
 }
 
+interface ChannelInput extends Omit<Device, 'channels'> {
+  channel: Channel
+}
+
+export const MapChannels = (devices: Device[]): ChannelInput[] => {
+  return devices.flatMap((d) => {
+    return d.channels.map((c) => {
+      return {
+        name: d.name + (c.displayName === d.name ? '' : ` - ${c.displayName}`),
+        deviceId: d.deviceId,
+        channel: c,
+      }
+    })
+  })
+}
+
 export const SetDatapoint = async (
   conn: SysApConnection,
   request: DatapointRequest,
